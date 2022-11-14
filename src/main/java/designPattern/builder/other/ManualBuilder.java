@@ -4,7 +4,7 @@ package designPattern.builder.other;
  * @author zijian.zeng@hand-china.com
  * @since 2022-11-12
  */
-public class ManualBuilder implements Builder{
+public class ManualBuilder implements Builder {
 
     private CarType carType;
     private Integer seatNum;

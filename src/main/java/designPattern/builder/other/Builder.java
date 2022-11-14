@@ -7,26 +7,27 @@ package designPattern.builder.other;
 public interface Builder {
 
 
-  void setCarType(CarType carType);
+    void setCarType(CarType carType);
 
-  void setSeats(Integer num);
+    void setSeats(Integer num);
 
-  void setEngine(String name);
+    void setEngine(String name);
 
-  void setTripComputer(String name);
+    void setTripComputer(String name);
 
-  void setGps(String name);
+    void setGps(String name);
 
-  enum CarType {
-    CITY_CAR("城市汽车"), SPORTS_CAR("运动型汽车"), SUV("越野型汽车");
+    enum CarType {
+        CITY_CAR("城市汽车"), SPORTS_CAR("运动型汽车"), SUV("越野型汽车");
 
-    private String carName;
+        private final String carName;
 
-    CarType(String carName) {
-      this.carName = carName;
+        CarType(String carName) {
+            this.carName = carName;
+        }
+
+        public String getCarName() {
+            return carName;
+        }
     }
-    public String getCarName() {
-      return carName;
-    }
-  }
 }

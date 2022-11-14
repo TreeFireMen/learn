@@ -1,12 +1,14 @@
 package designPattern.decorators.example1;
 
-/**抽象基础修饰
+/**
+ * 抽象基础修饰
+ *
  * @author zijian.zeng@hand-china.com
  * @since 2022-11-13
  */
-public class DataSourceDecorator implements DataSource{
+public class DataSourceDecorator implements DataSource {
 
-    private DataSource dataSource;
+    private final DataSource dataSource;
 
     public DataSourceDecorator(DataSource dataSource) {
         this.dataSource = dataSource;

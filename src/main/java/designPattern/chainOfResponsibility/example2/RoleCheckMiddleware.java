@@ -2,6 +2,7 @@ package designPattern.chainOfResponsibility.example2;
 
 /**
  * 检查用户角色
+ *
  * @author zijian.zeng@hand-china.com
  * @since 2022-11-14
  */

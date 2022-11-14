@@ -11,7 +11,7 @@ import java.util.Map;
  */
 public class Server {
 
-    private Map<String, String> users = new HashMap<>();
+    private final Map<String, String> users = new HashMap<>();
     private Middleware middleware;
 
     /**

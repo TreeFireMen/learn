@@ -7,6 +7,13 @@ package shareMemory;
 public class VisibilityDemo {
     private static boolean shutdown = false;
 
+    public static void main(String[] args) throws InterruptedException {
+        new HelloThread().start();
+        Thread.sleep(1000);
+        shutdown = true;
+        System.out.println("exit main");
+    }
+
     static class HelloThread extends Thread {
         @Override
         public void run() {
@@ -15,12 +22,5 @@ public class VisibilityDemo {
             }
             System.out.println("exit hello");
         }
-    }
-
-    public static void main(String[] args) throws InterruptedException {
-        new HelloThread().start();
-        Thread.sleep(1000);
-        shutdown = true;
-        System.out.println("exit main");
     }
 }

@@ -7,7 +7,7 @@ import javax.swing.*;
  * @author zijian.zeng@hand-china.com
  * @since 2022-11-13
  */
-public class WindowsButton implements Button{
+public class WindowsButton implements Button {
 
     JPanel panel = new JPanel();
     JFrame frame = new JFrame();

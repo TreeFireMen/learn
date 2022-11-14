@@ -13,7 +13,7 @@ import java.io.OutputStream;
  * @since 2022-11-13
  */
 public class FileDataSource implements DataSource {
-    private String name;
+    private final String name;
 
     public FileDataSource(String name) {
         this.name = name;

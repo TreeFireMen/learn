@@ -7,10 +7,13 @@ package designPattern.builder.else_example;
 public abstract class Builder {
     //设置主机
     abstract void buildBoard(String board);
+
     //设置显示器
     abstract void buildDisplay(String display);
+
     //设置系统
     abstract void buildOs();
+
     //创建computer
     abstract Computer build();
 }

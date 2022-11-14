@@ -9,7 +9,7 @@ import java.io.InputStreamReader;
  * @since 2022-11-14
  */
 public class Demo {
-    private static BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+    private static final BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
     private static Server server;
 
     private static void init() {
@@ -28,16 +28,17 @@ public class Demo {
         // Server gets a chain from client code.
         server.setMiddleware(middleware);
     }
-  public static void main(String[] args) throws IOException {
-      init();
 
-      boolean success;
-      do {
-          System.out.print("Enter email: ");
-          String email = reader.readLine();
-          System.out.print("Input password: ");
-          String password = reader.readLine();
-          success = server.logIn(email, password);
-      } while (!success);
-  }
+    public static void main(String[] args) throws IOException {
+        init();
+
+        boolean success;
+        do {
+            System.out.print("Enter email: ");
+            String email = reader.readLine();
+            System.out.print("Input password: ");
+            String password = reader.readLine();
+            success = server.logIn(email, password);
+        } while (!success);
+    }
 }

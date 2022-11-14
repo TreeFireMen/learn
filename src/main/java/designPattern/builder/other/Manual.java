@@ -5,11 +5,11 @@ package designPattern.builder.other;
  * @since 2022-11-12
  */
 public class Manual {
-    private Builder.CarType carType;
-    private Integer seatNum;
-    private String engine;
-    private String computerName;
-    private String gps;
+    private final Builder.CarType carType;
+    private final Integer seatNum;
+    private final String engine;
+    private final String computerName;
+    private final String gps;
 
     public Manual(Builder.CarType carType, Integer seatNum, String engine, String computerName, String gps) {
         this.carType = carType;

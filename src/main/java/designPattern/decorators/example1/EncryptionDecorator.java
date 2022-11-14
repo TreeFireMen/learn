@@ -2,11 +2,13 @@ package designPattern.decorators.example1;
 
 import java.util.Base64;
 
-/**加密装饰
+/**
+ * 加密装饰
+ *
  * @author zijian.zeng@hand-china.com
  * @since 2022-11-13
  */
-public class EncryptionDecorator extends DataSourceDecorator{
+public class EncryptionDecorator extends DataSourceDecorator {
 
     public EncryptionDecorator(DataSource dataSource) {
         super(dataSource);

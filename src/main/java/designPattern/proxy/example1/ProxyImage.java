@@ -8,7 +8,7 @@ public class ProxyImage implements Image {
 
 
     private RealImage realImage;
-    private String fileName;
+    private final String fileName;
 
     public ProxyImage(String fileName) {
         this.fileName = fileName;
@@ -20,6 +20,6 @@ public class ProxyImage implements Image {
         if (realImage == null) {
             realImage = new RealImage(fileName);
         }
-            realImage.display();
+        realImage.display();
     }
 }

@@ -12,6 +12,19 @@ public class MyLatch {
         this.count = count;
     }
 
+    public static void main(String[] args) throws InterruptedException {
+        int workNum = 100;
+        MyLatch latch = new MyLatch(workNum);
+        Thread[] threads = new Thread[100];
+        for (int i = 0; i < workNum; i++) {
+            threads[i] = new Worker(latch);
+            threads[i].start();
+        }
+        latch.await();
+        System.out.println("collect workers result");
+
+    }
+
     public synchronized void await() throws InterruptedException {
         while (count > 0) {
             wait();
@@ -43,19 +56,6 @@ public class MyLatch {
             }
 
         }
-    }
-
-    public static void main(String[] args) throws InterruptedException {
-        int workNum = 100;
-        MyLatch latch = new MyLatch(workNum);
-        Thread[] threads = new Thread[100];
-        for (int i = 0; i < workNum; i++) {
-            threads[i] = new Worker(latch);
-            threads[i].start();
-        }
-        latch.await();
-        System.out.println("collect workers result");
-
     }
 
 }

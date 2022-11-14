@@ -1,20 +1,31 @@
 package shareMemory;
 
-import java.util.concurrent.Callable;
-
 /**
  * @author zijian.zeng@hand-china.com
  * @since 2022/11/2
  */
 public class RunForRace {
 
+    public static void main(String[] args) throws InterruptedException {
+        FireFlag fireFlag = new FireFlag();
+        Thread[] racers = new Thread[10];
+        for (int i = 0; i < 10; i++) {
+            racers[i] = new Racer(fireFlag);
+            racers[i].start();
+        }
+        Thread.sleep(1000);
+        fireFlag.fire();
+    }
+
     static class FireFlag {
         private volatile boolean fired = false;
+
         public synchronized void waitForFire() throws InterruptedException {
             while (!fired) {
                 wait();
             }
         }
+
         public synchronized void fire() {
             fired = true;
             notifyAll();
@@ -23,6 +34,7 @@ public class RunForRace {
 
     static class Racer extends Thread {
         FireFlag fireFlag;
+
         public Racer(FireFlag fireFlag) {
             this.fireFlag = fireFlag;
         }
@@ -36,17 +48,6 @@ public class RunForRace {
                 e.printStackTrace();
             }
         }
-    }
-
-    public static void main(String[] args) throws InterruptedException {
-        FireFlag fireFlag = new FireFlag();
-        Thread[] racers = new Thread[10];
-        for (int i = 0; i < 10; i++) {
-            racers[i] = new Racer(fireFlag);
-            racers[i].start();
-        }
-        Thread.sleep(1000);
-        fireFlag.fire();
     }
 
 

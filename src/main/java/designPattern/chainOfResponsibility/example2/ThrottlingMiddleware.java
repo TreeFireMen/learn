@@ -8,7 +8,7 @@ package designPattern.chainOfResponsibility.example2;
  */
 public class ThrottlingMiddleware extends Middleware {
 
-    private int requestPerMinute;
+    private final int requestPerMinute;
     private int request;
     private long currentTime;
 

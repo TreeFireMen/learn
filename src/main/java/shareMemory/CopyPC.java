@@ -8,6 +8,12 @@ import java.util.Queue;
  * @since 2022/11/2
  */
 public class CopyPC {
+    public static void main(String[] args) {
+        MyBlockQueue<String> queue = new MyBlockQueue<>(10);
+        new Producer(queue).start();
+        new Consumer(queue).start();
+    }
+
     static class MyBlockQueue<E> {
         private final Queue<E> queue;
         private final Integer limit;
@@ -29,19 +35,19 @@ public class CopyPC {
             while (queue.isEmpty()) {
                 wait();
             }
-            E take = (E) queue.poll();
+            E take = queue.poll();
             notifyAll();
             return take;
         }
     }
 
-
-    static class Producer extends Thread{
+    static class Producer extends Thread {
         private final MyBlockQueue<String> myBlockQueue;
 
         public Producer(MyBlockQueue<String> myBlockQueue) {
             this.myBlockQueue = myBlockQueue;
         }
+
         @Override
         public void run() {
             try {
@@ -50,7 +56,7 @@ public class CopyPC {
                     String task = String.valueOf(num);
                     myBlockQueue.put(task);
                     System.out.println("produce " + num);
-                    num ++;
+                    num++;
                     Thread.sleep((long) (Math.random() * 100));
                 }
             } catch (InterruptedException e) {
@@ -59,7 +65,7 @@ public class CopyPC {
         }
     }
 
-    static class Consumer extends Thread{
+    static class Consumer extends Thread {
         private final MyBlockQueue<String> myBlockQueue;
 
         public Consumer(MyBlockQueue<String> myBlockQueue) {
@@ -69,22 +75,16 @@ public class CopyPC {
 
         @Override
         public synchronized void run() {
-           while (true) {
-               String take = null;
-               try {
-                   take = myBlockQueue.take();
-               } catch (InterruptedException e) {
-                   e.printStackTrace();
-               }
-               System.out.println("consumer " + take);
-           }
+            while (true) {
+                String take = null;
+                try {
+                    take = myBlockQueue.take();
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                System.out.println("consumer " + take);
+            }
         }
-    }
-
-    public static void main(String[] args) {
-        MyBlockQueue<String> queue = new MyBlockQueue<>(10);
-        new Producer(queue).start();
-        new Consumer(queue).start();
     }
 
 

@@ -8,6 +8,12 @@ import java.util.Queue;
  * @since 2022/11/2
  */
 public class ProducerAndConsumer {
+    public static void main(String[] args) {
+        MyBlockingQueue<String> blockingQueue = new MyBlockingQueue<>(10);
+        new Producer(blockingQueue).start();
+        new Consumer(blockingQueue).start();
+    }
+
     static class MyBlockingQueue<E> {
         private final Queue<E> queue;
         private final int limit;
@@ -59,7 +65,7 @@ public class ProducerAndConsumer {
     }
 
     static class Consumer extends Thread {
-        private MyBlockingQueue<String> queue;
+        private final MyBlockingQueue<String> queue;
 
         public Consumer(MyBlockingQueue<String> queue) {
             this.queue = queue;
@@ -76,11 +82,5 @@ public class ProducerAndConsumer {
             } catch (InterruptedException e) {
             }
         }
-    }
-
-    public static void main(String[] args) {
-        MyBlockingQueue<String> blockingQueue = new MyBlockingQueue<>(10);
-        new Producer(blockingQueue).start();
-        new Consumer(blockingQueue).start();
     }
 }

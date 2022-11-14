@@ -6,7 +6,7 @@ package designPattern.chainOfResponsibility.example2;
  */
 public class UserExistsMiddleware extends Middleware {
 
-    private Server server;
+    private final Server server;
 
     public UserExistsMiddleware(Server server) {
         this.server = server;

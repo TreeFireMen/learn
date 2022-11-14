@@ -11,13 +11,19 @@ import java.util.concurrent.locks.ReentrantLock;
  * @since 2022/11/3
  */
 public class ProducerAndConsumerCondition {
+    public static void main(String[] args) {
+        MyBlockingQueue<String> blockingQueue = new MyBlockingQueue<>(10);
+        new Producer(blockingQueue).start();
+        new Consumer(blockingQueue).start();
+    }
+
     static class MyBlockingQueue<E> {
         private final Queue<E> queue;
         private final int limit;
-        private Lock lock = new ReentrantLock();
+        private final Lock lock = new ReentrantLock();
 
-        private Condition notFull = lock.newCondition();
-        private Condition notEmpty = lock.newCondition();
+        private final Condition notFull = lock.newCondition();
+        private final Condition notEmpty = lock.newCondition();
 
         public MyBlockingQueue(int limit) {
             this.queue = new ArrayDeque<>();
@@ -78,7 +84,7 @@ public class ProducerAndConsumerCondition {
     }
 
     static class Consumer extends Thread {
-        private MyBlockingQueue<String> queue;
+        private final MyBlockingQueue<String> queue;
 
         public Consumer(MyBlockingQueue<String> queue) {
             this.queue = queue;
@@ -95,11 +101,5 @@ public class ProducerAndConsumerCondition {
             } catch (InterruptedException e) {
             }
         }
-    }
-
-    public static void main(String[] args) {
-        MyBlockingQueue<String> blockingQueue = new MyBlockingQueue<>(10);
-        new Producer(blockingQueue).start();
-        new Consumer(blockingQueue).start();
     }
 }

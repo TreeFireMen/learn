@@ -8,7 +8,7 @@ import java.util.concurrent.locks.ReentrantLock;
  * @since 2022/11/2
  */
 public class Account {
-    private Lock lock = new ReentrantLock();
+    private final Lock lock = new ReentrantLock();
 
     private volatile double money;
 

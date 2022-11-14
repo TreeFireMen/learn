@@ -6,7 +6,7 @@ package designPattern.builder.else_example;
  */
 public class MacBookBuilder extends Builder {
 
-    private MacBook macBook = new MacBook();
+    private final MacBook macBook = new MacBook();
 
     public MacBookBuilder() {
     }
@@ -23,7 +23,7 @@ public class MacBookBuilder extends Builder {
 
     @Override
     void buildOs() {
-       macBook.setOs();
+        macBook.setOs();
     }
 
     @Override

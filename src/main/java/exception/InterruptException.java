@@ -1,9 +1,5 @@
 package exception;
 
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.Future;
-
 /**
  * @author zijian.zeng@hand-china.com
  * @since 2022/11/2
@@ -30,7 +26,6 @@ public class InterruptException {
         }
         thread.interrupt();
     }
-
 
 
 }

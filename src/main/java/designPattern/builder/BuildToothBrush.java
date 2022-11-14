@@ -9,9 +9,8 @@ import com.sun.org.slf4j.internal.LoggerFactory;
  */
 public class BuildToothBrush implements Builder {
 
-    Product product = new Product();
-
     private static final Logger logger = LoggerFactory.getLogger(BuildToothBrush.class);
+    Product product = new Product();
 
     @Override
     public void reset() {

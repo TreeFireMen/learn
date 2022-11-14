@@ -1,6 +1,8 @@
 package designPattern.builder;
 
-/** 通用的产品构造
+/**
+ * 通用的产品构造
+ *
  * @author zijian.zeng@hand-china.com
  * @since 2022-11-11
  */

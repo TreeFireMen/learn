@@ -25,7 +25,8 @@ public class CopyMain {
     }
 
     public static class CopyUserContext {
-        private static ThreadLocal<String> threadLocal = new ThreadLocal<>();
+        private static final ThreadLocal<String> threadLocal = new ThreadLocal<>();
+
         public CopyUserContext(String name) {
             threadLocal.set(name);
         }
@@ -37,7 +38,7 @@ public class CopyMain {
 
     class CopyTask implements Runnable {
 
-        private String name;
+        private final String name;
 
         public CopyTask(String name) {
             this.name = name;

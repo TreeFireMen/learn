@@ -1,6 +1,8 @@
 package designPattern.builder.other;
 
-/** 构建 CITY_CAR, SPORTS_CAR, SUV 类型的车
+/**
+ * 构建 CITY_CAR, SPORTS_CAR, SUV 类型的车
+ *
  * @author zijian.zeng@hand-china.com
  * @since 2022-11-12
  */
@@ -36,11 +38,6 @@ public class Director {
         builder.setGps("GPS-plus");
         builder.setTripComputer("apple-M2");
     }
-
-
-
-
-
 
 
 }

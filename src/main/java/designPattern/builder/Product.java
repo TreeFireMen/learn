@@ -9,20 +9,20 @@ public class Product {
     private Double price;
     private String owner;
 
-    public void reset() {
-        this.name = null;
-        this.price = null;
-        this.owner = null;
-    }
-
-
     public Product() {
     }
+
 
     public Product(String name, Double price, String owner) {
         this.name = name;
         this.price = price;
         this.owner = owner;
+    }
+
+    public void reset() {
+        this.name = null;
+        this.price = null;
+        this.owner = null;
     }
 
     public String getName() {

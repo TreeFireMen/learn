@@ -9,15 +9,6 @@ import java.util.concurrent.atomic.AtomicInteger;
 public class MyCount {
     private volatile int count;
 
-
-    public synchronized void add() {
-        count++;
-    }
-
-    public synchronized int get() {
-        return count;
-    }
-
     public static void main(String[] args) {
         AtomicInteger atomicInteger = new AtomicInteger(0);
         int i1 = atomicInteger.get();
@@ -25,5 +16,13 @@ public class MyCount {
         int i = atomicInteger.addAndGet(2);
         int andIncrement = atomicInteger.getAndIncrement();
         System.out.println(i);
+    }
+
+    public synchronized void add() {
+        count++;
+    }
+
+    public synchronized int get() {
+        return count;
     }
 }

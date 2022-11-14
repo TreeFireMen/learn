@@ -12,7 +12,7 @@ public class Demo {
         long naive = test(naiveDownloader);
         long smart = test(smartDownloader);
 
-        System.out.println("Time saved by caching proxy: " + (naive-smart) + "ms");
+        System.out.println("Time saved by caching proxy: " + (naive - smart) + "ms");
     }
 
     private static long test(YouTubeDownloader downloader) {

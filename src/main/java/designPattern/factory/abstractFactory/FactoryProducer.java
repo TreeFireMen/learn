@@ -1,6 +1,8 @@
 package designPattern.factory.abstractFactory;
 
-/** 静态方法属于类 而不属于对象
+/**
+ * 静态方法属于类 而不属于对象
+ *
  * @author zijian.zeng@hand-china.com
  * @since 2022-11-13
  */
