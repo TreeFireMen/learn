@@ -32,3 +32,7 @@ gitlabci/.generated
 # VSCode
 .vscode
 
+/demo/.gitignore
+/demo/HELP.md
+/demo/mvnw
+/demo/mvnw.cmd
