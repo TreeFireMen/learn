@@ -49,8 +49,16 @@ public class Clock {
         }
     }
 
+     public static void newObjectForEver() {
+        while (true) {
+            Object o = new Object();
+            System.out.println(o);
+        }
+     }
+
     public static void main(String... args) throws InterruptedException {
-        new Clock().loopReport();
+//        new Clock().loopReport();
+        newObjectForEver();
     }
 
 }
